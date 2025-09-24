@@ -1,0 +1,268 @@
+// IMPORT BOOTSTRAP
+@import "../node_modules/bootstrap/scss/functions";
+
+// COLORS
+$primary: #2F614B;
+$secondary: #D8BA81;
+$green: #AADBB3;
+$gradient: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+
+$font-family-sans-serif: "Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto;
+$headings-font-family: "Forum", system-ui, -apple-system, "Segoe UI", Roboto;
+$font-size-base: 1.1rem;
+$line-height-base: 1.4;
+$display-font-sizes: (
+    1: 4rem,
+    2: 3.5rem,
+    3: 3rem,
+    4: 2.5rem,
+    5: 2rem,
+    6: 1.5rem
+);
+$display-line-height: 1.1;
+
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// NAVBAR
+$navbar-dark-color: white;
+$navbar-dark-hover-color: $green;
+$navbar-dark-active-color: $green;
+
+a.nav-link {
+    font-size: 1rem !important;
+}
+
+// BUTTONS
+$btn-border-radius: 25px;
+$btn-border-radius-lg: 50px;
+$btn-border-width: 2px;
+$btn-font-family: $font-family-sans-serif;
+$btn-font-size: 0.9rem;
+$btn-letter-spacing: 2rem;
+$btn-font-weight: 500;
+$btn-font-weight-lg: 500;
+
+.btn-secondary {
+    color: white !important;
+}
+
+// CARDS
+$card-border-width: 0;
+$card-border-radius: 1rem;
+$card-inner-border-radius: 1rem;
+
+
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+$theme-colors: map-remove($theme-colors, "blue", "indigo", "purple", "pink", "yellow", "orange", "red", "teal", "cyan");
+
+$utilities: (
+    "letter-spacing": (property: letter-spacing,
+        values: (0: 0,
+            1: .1rem,
+            2: .2rem,
+            3: .3rem, )),
+);
+
+
+$spacers: map-merge((0: 0,
+            1: ($spacer * .25), //4px
+            2: ($spacer * .5), //8px
+            3: $spacer, //16px
+            4: ($spacer * 1.5), //24px
+            5: ($spacer * 3), //48px
+            6: ($spacer * 4), //64px
+            7: ($spacer * 5), //80px
+            8: ($spacer * 6.25), //100px
+            9: ($spacer * 7.5), //120px
+            10: ($spacer * 9.375) //150px
+        ),
+        $spacers );
+
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/card";
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/utilities/api";
+@import "../node_modules/aos/dist/aos";
+
+
+// GLOBAL
+html * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-nav .show>.nav-link,
+.navbar-nav .nav-link.active {
+    font-weight: 700;
+}
+
+.text-green {
+    color: $green;
+}
+
+// LOADER
+.spinner-wrapper {
+    background-color: $primary;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+}
+
+.spinner-border {
+    width: 60px;
+    height: 60px;
+}
+
+// ICONS
+i.bi::before {
+    font-size: 1.2em;
+}
+
+// GALERIE
+.img-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $font-size-base;
+}
+
+.img-card {
+    position: relative;
+
+    &:hover {
+        .img-title {
+            opacity: 1;
+        }
+
+        img {
+            filter: brightness(0.3);
+        }
+    }
+
+    img {
+        transition: all 0.3s;
+    }
+
+    .img-title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: all 0.3s;
+    }
+}
+
+.img-card {
+    position: relative;
+
+    &:hover {
+
+        .img-title,
+        .img-action-buttons {
+            opacity: 1;
+        }
+    }
+
+
+    .img-action-buttons {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 8px;
+        display: flex;
+        justify-content: space-between;
+
+        opacity: 0;
+        transition: all 0.3s;
+    }
+}
+
+// RESERVATION
+.allreservations {
+    a {
+        display: block;
+        color: $black;
+        padding: 10px;
+    }
+}
+
+// MEDIA QUERIES
+
+// Small devices
+@include media-breakpoint-down(sm) {
+    .hero-image {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 25%, rgba(0, 0, 0, 0.4) 70%, rgba(47, 97, 75, 1) 100%), url("../img/hero-background-portait.jpg") no-repeat center center;
+        background-size: cover;
+    }
+
+    .hero-spacing {
+        padding-top: calc(60% - #{$carousel-caption-padding-y});
+        padding-bottom: calc(60% - #{$carousel-caption-padding-y});
+    }
+}
+
+// Medium devices
+@include media-breakpoint-down(md) {
+    .hero-image {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 25%, rgba(0, 0, 0, 0.4) 70%, rgba(47, 97, 75, 1) 100%), url("../img/hero-background-square.jpg") no-repeat center center;
+        background-size: cover;
+    }
+
+    .hero-spacing {
+        padding-top: calc(40% - #{$carousel-caption-padding-y});
+        padding-bottom: calc(40% - #{$carousel-caption-padding-y});
+    }
+}
+
+// Large devices
+@include media-breakpoint-between(md, lg) {
+    .hero-image {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 25%, rgba(0, 0, 0, 0.4) 70%, rgba(47, 97, 75, 1) 100%), url("../img/hero-background-landscape.jpg") no-repeat center center;
+        background-size: cover;
+    }
+
+    .hero-spacing {
+        padding-top: calc(30% - #{$carousel-caption-padding-y});
+        padding-bottom: calc(30% - #{$carousel-caption-padding-y});
+    }
+}
+
+// X-Large devices
+@include media-breakpoint-up(lg) {
+    .hero-image {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 25%, rgba(0, 0, 0, 0.4) 70%, rgba(47, 97, 75, 1) 100%), url("../img/hero-background-landscape.jpg") no-repeat center center;
+        background-size: cover;
+    }
+
+    .hero-spacing {
+        padding-top: calc(20% - #{$carousel-caption-padding-y});
+        padding-bottom: calc(20% - #{$carousel-caption-padding-y});
+    }
+}
